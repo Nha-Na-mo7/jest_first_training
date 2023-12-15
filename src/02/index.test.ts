@@ -1,6 +1,6 @@
 import { fizzBuzz } from ".";
 
-describe("引数が0以上の場合", () => {
+describe("引数が0より大きい数値の場合", () => {
   it("3 or 5 で割り切れる整数を渡すと、FizzBuzzが出力される", () => {
     expect(fizzBuzz(15)).toBe("FizzBuzz");
   });
