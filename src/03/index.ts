@@ -1,5 +1,5 @@
-type Month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-type JapaneseMonthName =
+export type Month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type JapaneseMonthName =
   | "睦月"
   | "如月"
   | "弥生"
@@ -12,7 +12,7 @@ type JapaneseMonthName =
   | "神無月"
   | "霜月"
   | "師走";
-type LunarCalender = (month: Month) => JapaneseMonthName;
+export type LunarCalender = (month: Month) => JapaneseMonthName;
 
 export const lunarCalender: LunarCalender = (month: Month) => {
   switch (month) {
