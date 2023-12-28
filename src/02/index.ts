@@ -12,7 +12,7 @@ export type JapaneseMonthName =
   | "神無月"
   | "霜月"
   | "師走";
-export type LunarCalender = (month: Month) => JapaneseMonthName;
+type LunarCalender = (month: Month) => JapaneseMonthName;
 
 export const lunarCalender: LunarCalender = (month: Month) => {
   switch (month) {
