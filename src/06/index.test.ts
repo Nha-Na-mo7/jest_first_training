@@ -21,10 +21,10 @@ describe("Promiseインスタンスを関数の戻り値としてreturnさせ、
 });
 
 describe("resolveマッチャー、rejectマッチャーを使用する方法", () => {
-  it("引数に渡したidのユーザーが存在する場合、resolveされる", async () => {
-    await expect(fetchUser(1)).resolves.toStrictEqual(user1);
+  it("引数に渡したidのユーザーが存在する場合、resolveされる", () => {
+    return expect(fetchUser(1)).resolves.toStrictEqual(user1);
   });
-  it("引数に渡したidのユーザーが存在しない場合、rejectされる", async () => {
-    await expect(fetchUser(99)).rejects.toBe("error");
+  it("引数に渡したidのユーザーが存在しない場合、rejectされる", () => {
+    return expect(fetchUser(99)).rejects.toBe("error");
   });
 });
