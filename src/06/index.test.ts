@@ -38,3 +38,13 @@ describe("テスト関数をasync 関数とし、テスト関数内でPromiseの
     await expect(fetchUser(99)).rejects.toBe("error");
   });
 });
+
+describe("検証値のPromiseが解決するのを待って、アサーションに展開する方法", () => {
+  it("引数に渡したidのユーザーが存在する場合、resolveされる", async () => {
+    expect(await fetchUser(1)).toStrictEqual(user1);
+  });
+
+  it("引数に渡したidのユーザーが存在しない場合、rejectされる", async () => {
+    expect(await fetchUser(99)).toBe("error");
+  });
+});
