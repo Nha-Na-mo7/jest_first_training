@@ -14,6 +14,7 @@ describe("Promiseインスタンスを関数の戻り値としてreturnさせ、
     });
   });
   it("引数に渡したidのユーザーが存在しない場合、rejectされる", () => {
+    expect.assertions(1);
     return fetchUser(99).catch((error) => {
       expect(error).toBe("error");
     });
@@ -25,6 +26,7 @@ describe("resolveマッチャー、rejectマッチャーを使用する方法", 
     return expect(fetchUser(1)).resolves.toStrictEqual(user1);
   });
   it("引数に渡したidのユーザーが存在しない場合、rejectされる", () => {
+    expect.assertions(1);
     return expect(fetchUser(99)).rejects.toBe("error");
   });
 });
@@ -35,14 +37,13 @@ describe("テスト関数をasync 関数とし、テスト関数内でPromiseの
   });
 
   it("引数に渡したidのユーザーが存在しない場合、rejectされる", async () => {
+    expect.assertions(1);
     await expect(fetchUser(99)).rejects.toBe("error");
   });
 });
 
 describe("try~catchを使用したrejectのテスト", () => {
   it("引数に渡したidのユーザーが存在しない場合、rejectされる", async () => {
-    // このテスト内において、実行されるべきassertionの回数をテストする。
-    // 今回の場合、reject時のみ、expect(error).toBe("error") の1回assertionが実行されることを期待している。
     expect.assertions(1);
 
     try {
