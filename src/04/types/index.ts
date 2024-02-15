@@ -1,5 +1,4 @@
 export type TestObject = {
-  id: number;
   name: string;
   address: {
     prefecture: string;
@@ -9,7 +8,6 @@ export type TestObject = {
 };
 
 export type Args = {
-  id: number;
   name: string;
   prefecture: string;
   municipalities: string;
