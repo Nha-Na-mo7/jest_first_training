@@ -23,4 +23,12 @@ describe("オブジェクトのテスト", () => {
       },
     });
   });
+
+  it("オブジェクトが特定のプロパティを持つこと", () => {
+    expect(testObject2).toHaveProperty("name");
+    // optionalなプロパティも可
+    expect(testObject2).toHaveProperty("age");
+    // ネストしている場合の記述
+    expect(testObject2).toHaveProperty("address.prefecture");
+  });
 }
