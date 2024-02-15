@@ -31,4 +31,15 @@ describe("オブジェクトのテスト", () => {
     // ネストしている場合の記述
     expect(testObject2).toHaveProperty("address.prefecture");
   });
-}
+
+  it("オブジェクト内のオブジェクトのテスト", () => {
+    expect(testObject1).toEqual({
+      name: "User1",
+      age: 16,
+      address: expect.objectContaining({
+        prefecture: "東京都",
+        municipalities: "千代田区",
+      }),
+    });
+  });
+});
