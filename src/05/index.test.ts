@@ -40,4 +40,12 @@ describe("配列に関するテスト", () => {
       ])
     );
   });
+
+  it("truthy, falsy, null, undefined のテスト", () => {
+    const { truthy, falsy, nullValue, undefinedValue } = booleanObject;
+    expect(truthy).toBeTruthy();
+    expect(falsy).toBeFalsy();
+    expect(nullValue).toBeNull();
+    expect(undefinedValue).toBeUndefined();
+  });
 });
