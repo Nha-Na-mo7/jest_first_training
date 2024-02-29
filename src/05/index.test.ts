@@ -47,5 +47,8 @@ describe("配列に関するテスト", () => {
     expect(falsy).toBeFalsy();
     expect(nullValue).toBeNull();
     expect(undefinedValue).toBeUndefined();
+
+    expect(truthy).not.toBeFalsy();
+    expect(falsy).not.toBeTruthy();
   });
 });
