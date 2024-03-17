@@ -1,45 +1,54 @@
-import { createTestObject } from ".";
-
-const testObject1 = createTestObject({
-  name: "User1",
-  prefecture: "東京都",
-  municipalities: "千代田区",
-  age: 16,
-});
-
-const testObject2 = createTestObject({
-  name: "User2",
-  prefecture: "北海道",
-  municipalities: "札幌市",
-});
-
-describe("オブジェクトのテスト", () => {
-  it("オブジェクトが指定のkey-valueを持つこと", () => {
-    expect(testObject1).toMatchObject({ name: "User1", age: 16 });
-    expect(testObject1).toMatchObject({
-      address: {
-        prefecture: "東京都",
-        municipalities: "千代田区",
-      },
-    });
+type User = {
+  name: string;
+  age: number;
+};
+const pacificTeams = [
+  "Fighters",
+  "Eagles",
+  "Lions",
+  "Marines",
+  "Buffaloes",
+  "Hawks",
+];
+const users: User[] = [
+  { name: "user1", age: 17 },
+  { name: "user2", age: 25 },
+  { name: "user3", age: 33 },
+];
+const booleanObject = {
+  truthy: true,
+  falsy: false,
+  nullValue: null,
+  undefinedValue: undefined,
+};
+describe("配列に関するテスト", () => {
+  it("指定した要素が配列内に含まれていること", () => {
+    expect(pacificTeams).toContain("Fighters");
+    expect(pacificTeams).toEqual(expect.arrayContaining(["Eagles", "Lions"]));
+    expect(pacificTeams).not.toContain("Giants");
+    expect(pacificTeams).not.toEqual(
+      expect.arrayContaining(["Marines", "Swallows"])
+    );
   });
 
-  it("オブジェクトが特定のプロパティを持つこと", () => {
-    expect(testObject2).toHaveProperty("name");
-    // optionalなプロパティも可
-    expect(testObject2).toHaveProperty("age");
-    // ネストしている場合の記述
-    expect(testObject2).toHaveProperty("address.prefecture");
+  it("オブジェクトの配列のテスト", () => {
+    expect(users).toContainEqual({ name: "user1", age: 17 });
+    expect(users).toEqual(
+      expect.arrayContaining([
+        { name: "user2", age: 25 },
+        { name: "user3", age: 33 },
+      ])
+    );
   });
 
-  it("オブジェクト内のオブジェクトのテスト", () => {
-    expect(testObject1).toEqual({
-      name: "User1",
-      age: 16,
-      address: expect.objectContaining({
-        prefecture: "東京都",
-        municipalities: "千代田区",
-      }),
-    });
+  it("truthy, falsy, null, undefined のテスト", () => {
+    const { truthy, falsy, nullValue, undefinedValue } = booleanObject;
+    expect(truthy).toBeTruthy();
+    expect(falsy).toBeFalsy();
+    expect(nullValue).toBeNull();
+    expect(undefinedValue).toBeUndefined();
+
+    expect(truthy).not.toBeFalsy();
+    expect(falsy).not.toBeTruthy();
   });
 });
