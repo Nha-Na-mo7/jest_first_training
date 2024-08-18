@@ -30,7 +30,6 @@ describe("jest.fnを使ったテスト", () => {
     expect(nostalgicComedianFunction).not.toHaveBeenCalled();
 
     const threeArray = extractNumberAboutMultipleAndStickThree(40);
-    console.log(threeArray);
     const numberArray = [...Array(40)].map((_, index) => index + 1);
     const nostalgicComedianSaysArray = numberArray.map((value) => {
       return threeArray.includes(value)
@@ -38,7 +37,7 @@ describe("jest.fnを使ったテスト", () => {
         : value;
     });
 
-    console.log(nostalgicComedianSaysArray);
+    // console.log(nostalgicComedianSaysArray);
     expect(nostalgicComedianFunction).toHaveBeenCalledTimes(21);
     expect(nostalgicComedianFunction).toHaveBeenCalledWith(3);
   });
