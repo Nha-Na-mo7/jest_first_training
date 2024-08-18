@@ -8,7 +8,7 @@ export const extractNumberAboutMultipleAndStickThree: ExtractNumberAboutMultiple
       throw new RangeError("2 ~ 100の数値を入れてください。");
     }
 
-    const numberArray = [...Array(maxNumber).map((_, index) => index + 1)];
+    const numberArray = [...Array(maxNumber)].map((_, index) => index + 1);
     const multipleAndStickThreeArray = numberArray.filter((value) => {
       return isNumberIncludesThree(value) || isNumberMultiplesOfThree(value);
     });
