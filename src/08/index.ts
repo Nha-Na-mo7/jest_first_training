@@ -1,4 +1,6 @@
-type ExtractNumberAboutMultipleAndStickThree = (maxNumber: number) => Number[];
+import { isNumberIncludesThree, isNumberMultiplesOfThree } from "./modules";
+
+type ExtractNumberAboutMultipleAndStickThree = (maxNumber: number) => number[];
 
 export const extractNumberAboutMultipleAndStickThree: ExtractNumberAboutMultipleAndStickThree =
   (maxNumber) => {
@@ -8,7 +10,7 @@ export const extractNumberAboutMultipleAndStickThree: ExtractNumberAboutMultiple
 
     const numberArray = [...Array(maxNumber).map((_, index) => index + 1)];
     const multipleAndStickThreeArray = numberArray.filter((value) => {
-      return value.toString().includes("3") || value % 3 === 0;
+      return isNumberIncludesThree(value) || isNumberMultiplesOfThree(value);
     });
 
     return multipleAndStickThreeArray;
