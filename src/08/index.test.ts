@@ -18,8 +18,8 @@ describe("jest.spyOnを使ったテスト", () => {
     expect(spy).toHaveBeenCalled();
     expect(spy).toHaveBeenCalledWith(40);
 
-    // モックをリセットすれば元に戻る
-    spy.mockReset();
+    // モックをクリアすれば元に戻る
+    spy.mockClear();
     expect(spy).not.toHaveBeenCalled();
   });
 });
