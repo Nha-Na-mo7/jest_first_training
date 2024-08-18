@@ -1,7 +1,7 @@
 import { extractNumberAboutMultipleAndStickThree } from ".";
 import { numberCheckModules } from "./modules";
 
-describe("jest.spyOnのテスト", () => {
+describe("jest.spyOnを使ったテスト", () => {
   const spy = jest.spyOn(numberCheckModules, "isNumberIncludesThree");
   it("isNumberIncludesThree をspyOnを使ってモックする", () => {
     expect(spy).not.toHaveBeenCalled();
@@ -21,5 +21,25 @@ describe("jest.spyOnのテスト", () => {
     // モックをリセットすれば元に戻る
     spy.mockReset();
     expect(spy).not.toHaveBeenCalled();
+  });
+});
+
+describe("jest.fnを使ったテスト", () => {
+  it("即時のモック関数を作成し、処理をさせてみる", () => {
+    const nostalgicComedianFunction = jest.fn((value) => `🤪 < ${value}`);
+    expect(nostalgicComedianFunction).not.toHaveBeenCalled();
+
+    const threeArray = extractNumberAboutMultipleAndStickThree(40);
+    console.log(threeArray);
+    const numberArray = [...Array(40)].map((_, index) => index + 1);
+    const nostalgicComedianSaysArray = numberArray.map((value) => {
+      return threeArray.includes(value)
+        ? nostalgicComedianFunction(value)
+        : value;
+    });
+
+    console.log(nostalgicComedianSaysArray);
+    expect(nostalgicComedianFunction).toHaveBeenCalledTimes(21);
+    expect(nostalgicComedianFunction).toHaveBeenCalledWith(3);
   });
 });
