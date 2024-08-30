@@ -16,5 +16,33 @@ describe("各ステータスコードごとの処理のテスト", () => {
         },
       };
     });
+    const result = dummyFetch();
+    expect(result).toBe("it is value!");
+  });
+
+  it("StatusCode 400", () => {
+    spy.mockImplementationOnce(() => {
+      return {
+        result: {
+          statusCode: 400,
+          value: "",
+        },
+      };
+    });
+    const result = dummyFetch();
+    expect(result).toBe("バリデーションに問題があります。");
+  });
+
+  it("StatusCode 500", () => {
+    spy.mockImplementationOnce(() => {
+      return {
+        result: {
+          statusCode: 500,
+          value: "",
+        },
+      };
+    });
+
+    expect(() => dummyFetch()).toThrow(Error);
   });
 });
