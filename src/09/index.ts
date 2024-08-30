@@ -3,7 +3,7 @@ import { dummyValidation } from "./libs/dummyValidation";
 export const dummyFetch = () => {
   const {
     result: { statusCode, value },
-  } = dummyValidation;
+  } = dummyValidation.returnResult();
 
   if (statusCode === 200) {
     return value;
