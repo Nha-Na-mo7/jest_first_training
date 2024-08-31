@@ -5,7 +5,7 @@
 - スタブを使った基本的なテストがかける
 
 ## 課題
-1. jest.mock関数を使って、実装途中の関数を置き換えてみよう。
+1. `jest.mock`関数を使って、実装途中の関数を置き換えてみよう。
 - `conversionToUSD`関数を、テストの時だけ以下の形式の関数になるように置き換えよう。
 ```typescript
 (amount: number) => `${Math.floor(amount / 150)}$`
