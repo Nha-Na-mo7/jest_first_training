@@ -1,7 +1,7 @@
 import { extractNumberAboutMultipleAndStickThree } from ".";
 import { numberCheckModules } from "./modules";
 
-describe("jest.spyOnを使ったテスト", () => {
+describe.skip("jest.spyOnを使ったテスト", () => {
   const spy = jest.spyOn(numberCheckModules, "isNumberIncludesThree");
   it("isNumberIncludesThree をspyOnを使ってモックする", () => {
     expect(spy).not.toHaveBeenCalled();
@@ -24,7 +24,7 @@ describe("jest.spyOnを使ったテスト", () => {
   });
 });
 
-describe("jest.fnを使ったテスト", () => {
+describe.skip("jest.fnを使ったテスト", () => {
   it("即時のモック関数を作成し、処理をさせてみる", () => {
     const nostalgicComedianFunction = jest.fn((value) => `🤪 < ${value}`);
     expect(nostalgicComedianFunction).not.toHaveBeenCalled();

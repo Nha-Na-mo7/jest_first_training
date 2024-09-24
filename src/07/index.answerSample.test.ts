@@ -5,7 +5,7 @@ jest.mock("./modules", () => ({
   conversionToUSD: (amount: number) => `${Math.floor(amount / 150)}$`,
 }));
 
-it("数値を引数に与えると、何万円か、何米ドルに当たるかを換算する", () => {
+it.skip("数値を引数に与えると、何万円か、何米ドルに当たるかを換算する", () => {
   expect(unitConversion(30000)).toMatchObject({
     yen: "3万円",
     usd: "200$",

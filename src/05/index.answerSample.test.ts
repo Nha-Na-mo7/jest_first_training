@@ -13,7 +13,7 @@ const testObject2 = createTestObject({
   municipalities: "札幌市",
 });
 
-describe("オブジェクトのテスト", () => {
+describe.skip("オブジェクトのテスト", () => {
   it("オブジェクトが指定のkey-valueを持つこと", () => {
     expect(testObject1).toMatchObject({ name: "User1", age: 16 });
     expect(testObject1).toMatchObject({

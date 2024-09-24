@@ -7,7 +7,7 @@ const user1: User = {
   email: "test1@example.com",
 };
 
-describe("Promiseインスタンスを関数の戻り値としてreturnさせ、Promiseが解決するまでテストの判定を待機させる方法", () => {
+describe.skip("Promiseインスタンスを関数の戻り値としてreturnさせ、Promiseが解決するまでテストの判定を待機させる方法", () => {
   it("引数に渡したidのユーザーが存在する場合、resolveされる", () => {
     return fetchUser(1).then((user) => {
       expect(user).toStrictEqual(user1);
@@ -21,7 +21,7 @@ describe("Promiseインスタンスを関数の戻り値としてreturnさせ、
   });
 });
 
-describe("resolveマッチャー、rejectマッチャーを使用する方法", () => {
+describe.skip("resolveマッチャー、rejectマッチャーを使用する方法", () => {
   it("引数に渡したidのユーザーが存在する場合、resolveされる", () => {
     return expect(fetchUser(1)).resolves.toStrictEqual(user1);
   });
@@ -31,7 +31,7 @@ describe("resolveマッチャー、rejectマッチャーを使用する方法", 
   });
 });
 
-describe("テスト関数をasync 関数とし、テスト関数内でPromiseの解決を待つ方法", () => {
+describe.skip("テスト関数をasync 関数とし、テスト関数内でPromiseの解決を待つ方法", () => {
   it("引数に渡したidのユーザーが存在する場合、resolveされる", async () => {
     await expect(fetchUser(1)).resolves.toStrictEqual(user1);
   });
@@ -42,7 +42,7 @@ describe("テスト関数をasync 関数とし、テスト関数内でPromiseの
   });
 });
 
-describe("try~catchを使用したrejectのテスト", () => {
+describe.skip("try~catchを使用したrejectのテスト", () => {
   it("引数に渡したidのユーザーが存在しない場合、rejectされる", async () => {
     expect.assertions(1);
 

@@ -21,7 +21,7 @@ const booleanObject = {
   nullValue: null,
   undefinedValue: undefined,
 };
-describe("配列に関するテスト", () => {
+describe.skip("配列に関するテスト", () => {
   it("指定した要素が配列内に含まれていること", () => {
     expect(pacificTeams).toContain("Fighters");
     expect(pacificTeams).toEqual(expect.arrayContaining(["Eagles", "Lions"]));

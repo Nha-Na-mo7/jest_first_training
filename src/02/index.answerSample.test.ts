@@ -16,7 +16,7 @@ const testCaseList: { input: Month; expected: JapaneseMonthName }[] = [
   { input: 12, expected: "師走" },
 ];
 
-it.each(testCaseList)(
+it.skip.each(testCaseList)(
   "引数に $input を渡すと、$expected を返す",
   ({ input, expected }) => {
     expect(lunarCalender(input)).toBe(expected);

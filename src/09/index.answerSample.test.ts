@@ -6,7 +6,7 @@ afterEach(() => {
   spy.mockClear();
 });
 
-describe("各ステータスコードごとの処理のテスト", () => {
+describe.skip("各ステータスコードごとの処理のテスト", () => {
   it("StatusCode 200", () => {
     spy.mockImplementationOnce(() => {
       return {

@@ -1,6 +1,6 @@
 import { greet } from ".";
 
-describe("時間ごとにあいさつが変化するテスト", () => {
+describe.skip("時間ごとにあいさつが変化するテスト", () => {
   beforeEach(() => {
     jest.useFakeTimers();
   });

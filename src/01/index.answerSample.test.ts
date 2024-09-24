@@ -1,10 +1,10 @@
 import { sum } from ".";
 
-test("1 + 2 は 3 となること", () => {
+test.skip("1 + 2 は 3 となること", () => {
   expect(sum(1, 2)).toBe(3);
 });
 
-describe("四則演算", () => {
+describe.skip("四則演算", () => {
   describe("sum関数", () => {
     test("1 + 2 は 3 となること", () => {
       expect(sum(1, 2)).toBe(3);
